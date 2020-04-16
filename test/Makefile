@@ -15,6 +15,9 @@ clean:
 kbtree_test:kbtree_test.c ../kbtree.h
 		$(CC) $(CFLAGS) -o $@ kbtree_test.c
 
+kbtree_itr_test:kbtree_itr_test.c ../kbtree.h
+		$(CC) $(CFLAGS) -o $@ $<
+
 khash_keith:khash_keith.c ../khash.h
 		$(CC) $(CFLAGS) -o $@ khash_keith.c
 

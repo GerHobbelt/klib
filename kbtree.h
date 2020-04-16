@@ -336,8 +336,13 @@ typedef struct {
 		itr->p = itr->stack; \
 		itr->p->x = b->root; \
 		while (itr->p->x) { \
-			itr->p->i = i = __kb_getp_aux_##name(itr->p->x, k, &r); \
-			if (i >= 0 && r == 0) return 0; \
+			i = __kb_getp_aux_##name(itr->p->x, k, &r); \
+			if (i >= 0 && r == 0) { \
+				itr->p->i = i; \
+				return 0; \
+			} else { \
+				itr->p->i = i + 1; \
+			} \
 			if (itr->p->x->is_internal == 0) return -1; \
 			itr->p[1].x = __KB_PTR(b, itr->p->x)[i + 1]; \
 			++itr->p; \
