@@ -76,3 +76,6 @@ kbitset_test:kbitset_test.c ../kbitset.h
 
 ketopt_test:ketopt_test.c ../ketopt.h
 		$(CC) $(CFLAGS) -o $@ ketopt_test.c
+
+kbarena_test:kbarena_test.c ../kbarena.h ../kbarena.c
+		$(CC) $(CFLAGS) -o $@ $< ../kbarena.c
